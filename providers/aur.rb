@@ -38,7 +38,7 @@ action :build do
 
     Chef::Log.debug("Retrieving source for #{new_resource.name}")
     r = remote_file "#{new_resource.builddir}/#{new_resource.name}.tar.gz" do
-      source "http://aur.archlinux.org/packages/#{new_resource.name}/#{new_resource.name}.tar.gz"
+      source "http://aur.archlinux.org/packages/#{new_resource.name[0,2]}/#{new_resource.name}/#{new_resource.name}.tar.gz"
       owner "root"
       group "root"
       mode 0644
